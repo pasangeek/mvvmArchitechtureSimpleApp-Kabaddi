@@ -3,7 +3,7 @@
 
     <data>
         <variable
-        name="viewModel"
+        name="viewModelVM"
         type="com.example.mvvm_architecture_example.ScoreViewModel" />
     </data>
 
@@ -130,7 +130,7 @@
         android:layout_marginTop="28dp"
         android:layout_marginEnd="50dp"
 
-        android:text="@{viewModel.scoreA.toString()}"
+        android:text="@{viewModelVM.scoreA.toString()}"
         tools:text="points"
         app:layout_constraintEnd_toStartOf="@+id/textViewTeamB"
         app:layout_constraintHorizontal_bias="0.186"

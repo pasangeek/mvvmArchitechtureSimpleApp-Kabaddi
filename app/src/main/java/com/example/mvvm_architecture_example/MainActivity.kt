@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import com.example.mvvm_architecture_example.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -21,15 +22,24 @@ class MainActivity : AppCompatActivity() {
         val scoreB : TextView = findViewById(R.id.textViewTeamB)
 
        // val buttonA :Button = findViewById(R.id.button_A)
-binding.viewModel= viewModel
-
+binding.viewModelVM= viewModel
+binding.lifecycleOwner = this
        binding.buttonA.setOnClickListener {
 
-            viewModel.incrementScore(true)
-            binding.textViewTeamA.text = viewModel.scoreA.toString()
+           viewModel.incrementScore(true)
+           //binding.textViewTeamA.text = viewModel.scoreA.toString()
 
 
+       }
+        binding.buttonA2.setOnClickListener {
+            viewModel.incrementScore2(true)
         }
+
+//        val scoreObserver = Observer<Int>{newValue ->
+//
+//            binding.textViewTeamA.text = newValue.toString()
+//        }
+//        viewModel.scoreA.observe(this,scoreObserver)
 
     }
 }
